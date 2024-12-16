@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>LurkForWork</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- You can add your styles and scripts here -->
+     <!-- Added Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/global.css" />
+</head>
+<body>
+    <div id="alert-pop-up" class="hidden">
+      <div class="alert-content">
+        <span class="close-btn" id="close-alert">&times;</span>
+        <h5 id="alert-title"></h3>
+        <p id="alert-mssg"></p>
+      </div>
+    </div>
+    <div id="login-registration">
+        <div>Welcome To Qanda, Ask Away All Your Queries!!</div>
+        <!-- <div id="login-registation-btn">
+            <button id="login-btn">Login</button>
+        </div> -->
+        <div id="login">
+            <form>
+                <div class="form-group">
+                  <label for="loginEmail">Email address</label>
+                  <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp" placeholder="Enter email">
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                  <label for="loginPass">Password</label>
+                  <input type="password" class="form-control" id="loginPass" placeholder="Password">
+                </div>
+                <div class="btn btn-success" id="login-submit">Submit</div>
+                <div class="btn btn-primary" id="login-to-regis">Register</div>
+              </form>
+        </div>
+        <div id="registration" class="hidden" >
+            <form>
+                <div class="form-group">
+                    <label for="regisName"> Name</label>
+                    <input type="name" class="form-control" id="regisName"  placeholder="Enter name">
+                  </div>
+                <div class="form-group">
+                  <label for="regisEmail">Email address</label>
+                  <input type="email" class="form-control" id="regisEmail" aria-describedby="emailHelp" placeholder="Enter email">
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                  <label for="regisPass">Password</label>
+                  <input type="password" class="form-control" id="regisPass" placeholder="Password">
+                </div>
+                <div class="form-group">
+                  <label for="regisCnfPass">Confirm Password</label>
+                  <input type="password" class="form-control" id="regisCnfPass" placeholder="Confirm Password">
+                </div>
+                <div  class="btn btn-success" id="regis-submit">Submit</div>
+                <div class="btn btn-primary" id="regis-to-login">Login</div>
+              </form>
+        </div>
+    </div>
+
+    <div id="main" class="hidden">
+        <div id="nav-bar">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">Qanda.com</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item ">
+                      <div class="nav-link" id="dashboard-btn">Dashboard</div>
+                    </li>
+                    <li class="nav-item">
+                      <div class="nav-link" id="profile-btn">Profile</div>
+                    </li>
+                    <li class="nav-item">
+                      <div class="nav-link" id="create-thread-btn">Create Thread</div>
+                    </li>
+                  </ul>
+                    <span type="button" class="btn btn-outline-danger" id="log-out">Logout</span>
+                </div>
+              </nav>
+        </div>
+        <div class =" dashboard" id="dashboard">
+            <span id="db-sidebar" style="height: 400px; overflow-y: auto;">
+              <ul class="list-group" id="sidebar-list">
+              </ul>
+            </span>
+            <span id="thread-view">
+            </span>
+        </div>
+        <div id="reply-comment" class="hidden">
+          <div class="alert-content">
+            <div class="mb-3">
+              <span class="close-btn" id="close-reply-comment">&times;</span>
+              <div id="parentCommId" class="hidden"></div>
+              <div id="threadId" class="hidden"></div>
+              <label for="reply-comment-body" class="form-label">Comment</label>
+              <textarea class="form-control" id="reply-comment-body" rows="3"></textarea>
+              <div type="button" class="btn btn-outline-success" id="reply-comment-btn">Comment</div>
+            </div>
+          </div>
+        </div>
+          <div id="edit-comment" class="hidden">
+            <div class="alert-content">
+              <div class="mb-3">
+                <span class="close-btn" id="close-edit-comment">&times;</span>
+                <div id="commentId" class="hidden"></div>
+                <div id="threadId-edit" class="hidden"></div>
+                <label for="edit-comment-body" class="form-label">Edit Comment</label>
+                <textarea class="form-control" id="edit-comment-body" rows="3"></textarea>
+                <div type="button" class="btn btn-outline-success" id="edit-comment-btn">Edit</div>
+              </div>
+            </div>
+          </div>
+        <div id="profile" class="hidden">
+          <div class="user-info" id="own-user-info"></div>
+          <div class="user-info">
+            <div class="btn btn-primary" id="update-own-profile" >Update Profile</div>
+          </div>
+          <ul class="list-group" id="own-user-threads"></ul>
+        </div>
+        <div id="update-own-profile-modal" class="hidden">
+          <div class="alert-content">
+            <span class="close-btn" id="close-update-own-profile">&times;</span>
+            <label for="updateEmail">Email address</label>
+            <input type="email" class="form-control" id="updateEmail" aria-describedby="emailHelp" placeholder="Enter email">
+            <label for="updateName">Name</label>
+            <input type="name" class="form-control" id="updateName" aria-describedby="nameHelp" placeholder="Enter name">
+            <label for="updatePassword">Password</label>
+            <input type="password" class="form-control" id="updatePassword" aria-describedby="passwordHelp" placeholder="Enter passsword"> 
+            <div class="hidden" id="default-img-path"></div>
+            <label for="updateImage">User profile</label>
+            <input type="file" class="form-control" id="updateImage" aria-describedby="imageHelp"> 
+            <div type="button" class="btn btn-outline-success" id="update-own-profile-btn">Update</div>
+          </div>
+        </div>
+        <div id="create-thread" class="hidden">
+          <div id="create-content">
+            <div class="mb-3">
+              <label for="content-title" class="form-label">Title</label>
+              <input type="text" class="form-control" id="content-title" placeholder="Title Of Your Thread">
+            </div>
+            <div class="mb-3">
+              <label for="content-body" class="form-label">Content</label>
+              <textarea class="form-control" id="content-body" rows="3"></textarea>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="private-thread-check" >
+              <label class="form-check-label" for="private-thread-check">
+                Private Thread
+              </label>
+            </div>
+            <div type="button" class="btn btn-outline-success" id="post-thread-btn">Create</div>
+
+
+
+          </div>
+      </div>
+    </div>
+    <div id="others-profile" class="hidden">
+      <div class="user-info" id="other-user-info"></div>
+      <span class="close-btn" id="close-others-profile">&times;</span>
+      <ul class="list-group" id="other-user-threads"></ul>
+    </div>
+    <div id="edit-thread-page" class="hidden">
+      <div id="create-content">
+        <div class="mb-3">
+          <label for="edit-content-title" class="form-label">Title</label>
+          <input type="text" class="form-control" id="edit-content-title" placeholder="Title Of Your Thread">
+        </div>
+        <div class="mb-3">
+          <label for="edit-content-body" class="form-label">Content</label>
+          <textarea class="form-control" id="edit-content-body" rows="3"></textarea>
+        </div>
+        <div id="thread-id" class="hidden"></div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="edit-private-thread-check" >
+          <label class="form-check-label" for="edit-private-thread-check">
+            Private Thread
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="edit-lock-thread-check" >
+          <label class="form-check-label" for="edit-lock-thread-check">
+            Lock Thread
+          </label>
+        </div>
+        <div type="button" class="btn btn-outline-success" id="edit-thread-btn">Save</div>
+        <div type="button" class="btn btn-outline-danger" id="discard-edit-thread-btn">Discard</div>
+      </div>
+    </div>
+    <!-- Adding Bootstrap JS scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="module" src="src/main.js"></script>
+</body>
+</html>
