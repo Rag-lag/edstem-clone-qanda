@@ -93,27 +93,7 @@
 
 - Infinite scroll implementation for thread listing
 
-## Screenshots
 
-### Authentication
-
-[Add screenshots of login and registration forms]
-
-### Thread Management
-
-[Add screenshots of thread creation, listing, and individual thread views]
-
-### Thread Interactions
-
-[Add screenshots of editing, liking, and watching interfaces]
-
-### Comments
-
-[Add screenshots of comment threads, nested replies, and interaction buttons]
-
-### User Profiles
-
-[Add screenshots of profile views and management interfaces]
 
 ## License
 
